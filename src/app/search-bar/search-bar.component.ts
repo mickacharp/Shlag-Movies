@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CollectionMoviesService } from '../collection-movies.service';
+import { CollectionMoviesService } from '../shared/collection-movies.service';
 
 @Component({
   selector: 'app-search-bar',
