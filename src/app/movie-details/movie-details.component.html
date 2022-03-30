@@ -1,0 +1,50 @@
+<div class="movie">
+  <h1>{{ movieToDisplay.title | uppercase }}</h1>
+  <h2>by {{ movieToDisplay.director }}</h2>
+  <div class="movie__details">
+    <img
+      src="{{ movieToDisplay.img }}"
+      alt="poster of the movie"
+      class="movie__poster"
+    />
+    <div class="movie__infos">
+      <h3>Year</h3>
+      <p>{{ movieToDisplay.year }}</p>
+      <h3>Genre</h3>
+      <p>{{ movieToDisplay.genre }}</p>
+      <h3>We recommend to watch this</h3>
+      <p>{{ movieToDisplay.audience }}</p>
+      <h3>Synopsis</h3>
+      <p>{{ movieToDisplay.synopsis }}</p>
+    </div>
+  </div>
+
+  <p-button
+    (click)="showModalDialog()"
+    icon="pi pi-sync"
+    label="Update this movie"
+    class="movie__update-button"
+    iconPos="right"
+  ></p-button>
+  <p-dialog
+    header="Update {{ movieToDisplay.title }} movie"
+    [(visible)]="displayModal"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <app-update-movie
+      [movieToDisplay]="movieToDisplay"
+      class="movie__update"
+    ></app-update-movie>
+  </p-dialog>
+
+  <p-button
+    class="movie__delete-button"
+    label="Delete this movie"
+    icon="pi pi-trash"
+    iconPos="right"
+    (onClick)="confirmDelete()"
+  ></p-button>
+</div>

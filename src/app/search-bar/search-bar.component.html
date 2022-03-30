@@ -1,0 +1,16 @@
+<div class="searchbar">
+  <span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input
+      type="text"
+      pInputText
+      placeholder="Search a movie"
+      [(ngModel)]="movieSearched"
+      (ngModelChange)="getMoviesWithName()"
+    />
+  </span>
+  <span class="searchbar__results">
+    {{ numberOfMovies }}
+    {{ numberOfMovies === 1 ? " movie found" : " movies found" }}
+  </span>
+</div>

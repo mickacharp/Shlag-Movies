@@ -1,0 +1,80 @@
+<form (ngSubmit)="addMovie(); navigateToCreatedMovie()" class="create-form">
+  <div class="create-form__inputs">
+    <label for="title">Type a title: </label>
+    <span class="p-input-icon-left p-float-label">
+      <i class="pi pi-pencil"></i>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        pInputText
+        placeholder="Title"
+        [(ngModel)]="newMovie.title"
+      />
+    </span>
+  </div>
+  <div class="create-form__inputs">
+    <label for="director">Type a director: </label>
+    <span class="p-input-icon-left p-float-label">
+      <i class="pi pi-user"></i>
+      <input
+        type="text"
+        id="director"
+        name="director"
+        pInputText
+        placeholder="Director"
+        [(ngModel)]="newMovie.director"
+      />
+    </span>
+  </div>
+  <div class="create-form__inputs">
+    <label for="year">Type year: </label>
+    <span class="p-input-icon-left p-float-label">
+      <i class="pi pi-clock"></i>
+      <input
+        type="number"
+        id="year"
+        name="year"
+        min="1900"
+        max="2022"
+        pInputText
+        [(ngModel)]="newMovie.year"
+      />
+    </span>
+  </div>
+  <div class="create-form__inputs">
+    <label for="genre">Type a genre: </label>
+    <span class="p-input-icon-left p-float-label">
+      <i class="pi pi-compass"></i>
+      <input
+        type="text"
+        id="genre"
+        name="genre"
+        pInputText
+        placeholder="Genre"
+        [(ngModel)]="newMovie.genre"
+      />
+    </span>
+  </div>
+  <div class="create-form__inputs">
+    <label for="img">Paste URL of movie poster: </label>
+    <span class="p-input-icon-left p-float-label">
+      <i class="pi pi-image"></i>
+      <input
+        type="text"
+        id="img"
+        name="img"
+        pInputText
+        placeholder="Movie Poster URL"
+        [(ngModel)]="newMovie.img"
+      />
+    </span>
+  </div>
+
+  <p-button
+    type="submit"
+    label="Add this movie"
+    icon="pi pi-arrow-circle-right"
+    iconPos="right"
+  ></p-button>
+</form>

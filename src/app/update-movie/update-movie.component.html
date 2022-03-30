@@ -1,0 +1,82 @@
+<div class="update">
+  <form (ngSubmit)="confirmUpdate()" class="update__form">
+    <div class="update__inputs">
+      <label for="new-title">Type a new title: </label>
+      <span class="p-input-icon-left p-float-label">
+        <i class="pi pi-pencil"></i>
+        <input
+          type="text"
+          id="new-title"
+          name="new-title"
+          pInputText
+          placeholder="New title"
+          [(ngModel)]="movieToDisplay.title"
+        />
+      </span>
+    </div>
+    <div class="update__inputs">
+      <label for="new-director">Type a new director: </label>
+      <span class="p-input-icon-left p-float-label">
+        <i class="pi pi-user"></i>
+        <input
+          type="text"
+          id="new-director"
+          name="new-director"
+          pInputText
+          placeholder="New director"
+          [(ngModel)]="movieToDisplay.director"
+        />
+      </span>
+    </div>
+    <div class="update__inputs">
+      <label for="new-year">Type a new year: </label>
+      <span class="p-input-icon-left p-float-label">
+        <i class="pi pi-clock"></i>
+        <input
+          type="number"
+          id="new-year"
+          name="new-year"
+          min="1900"
+          max="2022"
+          pInputText
+          [(ngModel)]="movieToDisplay.year"
+        />
+      </span>
+    </div>
+    <div class="update__inputs">
+      <label for="new-genre">Type a new genre: </label>
+      <span class="p-input-icon-left p-float-label">
+        <i class="pi pi-compass"></i>
+        <input
+          type="text"
+          id="new-genre"
+          name="new-genre"
+          pInputText
+          placeholder="New genre"
+          [(ngModel)]="movieToDisplay.genre"
+        />
+      </span>
+    </div>
+    <div class="update__inputs">
+      <label for="new-img">Paste URL of new movie poster: </label>
+      <span class="p-input-icon-left p-float-label">
+        <i class="pi pi-image"></i>
+        <input
+          type="text"
+          id="new-img"
+          name="new-img"
+          pInputText
+          placeholder="New movie Poster URL"
+          [(ngModel)]="movieToDisplay.img"
+        />
+      </span>
+    </div>
+
+    <p-button
+      type="submit"
+      label="Confirm changes"
+      icon="pi pi-arrow-circle-right"
+      iconPos="right"
+    ></p-button>
+  </form>
+</div>

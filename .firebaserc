@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "decouverte-17608"
+  },
+  "targets": {
+    "decouverte-17608": {
+      "hosting": {
+        "firebase-decouverte": [
+          "decouverte-17608"
+        ]
+      }
+    }
+  }
+}
