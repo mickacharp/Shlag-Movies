@@ -4,16 +4,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
+import { AuthService } from './shared/auth.service';
+
 // AngularFire imports
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import {
   provideAnalytics,
   getAnalytics,
   ScreenTrackingService,
   UserTrackingService,
 } from '@angular/fire/analytics';
-import { AngularFireModule } from '@angular/fire/compat';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
@@ -42,6 +46,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +57,7 @@ import { ToastModule } from 'primeng/toast';
     CreateMovieComponent,
     HeaderComponent,
     UpdateMovieComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +70,7 @@ import { ToastModule } from 'primeng/toast';
     ConfirmDialogModule,
     ToastModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideFirestore(() => getFirestore()),
     // provideAnalytics(() => getAnalytics()),
@@ -80,6 +87,7 @@ import { ToastModule } from 'primeng/toast';
     UserTrackingService,
     ConfirmationService,
     MessageService,
+    AuthService,
   ],
   bootstrap: [AppComponent],
 })
