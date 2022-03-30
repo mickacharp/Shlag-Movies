@@ -9,6 +9,13 @@ import { AuthService } from '../shared/auth.service';
 export class AuthComponent implements OnInit {
   email: string = '';
   password: string = '';
+
+  displayModal: boolean = false;
+
+  showModalDialog(): void {
+    this.displayModal = true;
+  }
+
   constructor(public authenticationService: AuthService) {}
 
   ngOnInit(): void {}
