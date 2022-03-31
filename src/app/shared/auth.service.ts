@@ -13,6 +13,8 @@ export class AuthService {
     this.userData = angularFireAuth.authState;
   }
 
+  ngOnInit(): void {}
+
   /* Sign up */
   SignUp(email: string, password: string) {
     this.angularFireAuth
