@@ -10,27 +10,21 @@ export class AuthComponent implements OnInit {
   email: string = '';
   password: string = '';
 
-  displayModal: boolean = false;
-
-  showModalDialog(): void {
-    this.displayModal = true;
-  }
-
-  constructor(public authenticationService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}
 
   signUp() {
-    this.authenticationService.SignUp(this.email, this.password);
+    this.authService.SignUp(this.email, this.password);
     this.email = '';
     this.password = '';
   }
   signIn() {
-    this.authenticationService.SignIn(this.email, this.password);
+    this.authService.SignIn(this.email, this.password);
     this.email = '';
     this.password = '';
   }
   signOut() {
-    this.authenticationService.SignOut();
+    this.authService.SignOut();
   }
 }
