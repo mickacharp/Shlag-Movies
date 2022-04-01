@@ -20,4 +20,8 @@ export class HeaderComponent implements OnInit {
       (bool) => (this.displayModal = bool)
     );
   }
+
+  signOut() {
+    this.authService.SignOut();
+  }
 }

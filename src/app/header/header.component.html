@@ -8,7 +8,17 @@
     label="My account"
     class="header__account-button"
     iconPos="right"
+    *ngIf="!(authService.userData | async)"
   ></p-button>
+  <p-button
+    (click)="signOut()"
+    icon="pi pi-sign-out"
+    iconPos="right"
+    label="Logout"
+    class="header__logout-button"
+    *ngIf="authService.userData | async"
+  >
+  </p-button>
 
   <h1 *ngIf="authService.userData | async">
     Hello {{ (authService.userData | async)?.email }} 😊

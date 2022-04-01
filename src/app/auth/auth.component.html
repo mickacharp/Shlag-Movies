@@ -21,12 +21,3 @@
     class="login-button"
   ></p-button>
 </div>
-<p-button
-  (click)="signOut()"
-  icon="pi pi-sign-out"
-  iconPos="right"
-  label="Logout"
-  class="logout-button"
-  *ngIf="authService.userData | async"
->
-</p-button>
