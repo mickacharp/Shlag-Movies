@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'movies/:title', component: MovieDetailsComponent },
   { path: 'add', component: CreateMovieComponent },
-  { path: 'find-a-movie', component: FilterMovieComponent },
+  { path: 'detailed-table-movies', component: FilterMovieComponent },
 ];
 
 @NgModule({
