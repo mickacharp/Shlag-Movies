@@ -70,6 +70,27 @@
       />
     </span>
   </div>
+  <div class="create-form__inputs">
+    <label for="audience">Select with whom you would watch this movie: </label>
+    <p-dropdown
+      id="audience"
+      name="audience"
+      [options]="audiences"
+      [(ngModel)]="newMovie.audience"
+    ></p-dropdown>
+  </div>
+  <div class="create-form__inputs">
+    <label for="synopsis">Type the movie synopsis: </label>
+    <textarea
+      [rows]="3"
+      id="synopsis"
+      name="synopsis"
+      pInputTextarea
+      [autoResize]="true"
+      placeholder="Movie synopsis"
+      [(ngModel)]="newMovie.synopsis"
+    ></textarea>
+  </div>
 
   <p-button
     type="submit"

@@ -46,7 +46,11 @@ import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TableModule } from 'primeng/table';
 import { AuthComponent } from './auth/auth.component';
+import { FilterMovieComponent } from './filter-movie/filter-movie.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,7 @@ import { AuthComponent } from './auth/auth.component';
     HeaderComponent,
     UpdateMovieComponent,
     AuthComponent,
+    FilterMovieComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,9 @@ import { AuthComponent } from './auth/auth.component';
     DialogModule,
     ConfirmDialogModule,
     ToastModule,
+    DropdownModule,
+    InputTextareaModule,
+    TableModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),

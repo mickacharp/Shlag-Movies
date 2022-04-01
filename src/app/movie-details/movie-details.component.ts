@@ -4,6 +4,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { CollectionMoviesService } from '../shared/collection-movies.service';
 import { Movie } from '../models/movie';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -23,7 +24,8 @@ export class MovieDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private confirmationService: ConfirmationService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {

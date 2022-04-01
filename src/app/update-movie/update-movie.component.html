@@ -71,6 +71,29 @@
         />
       </span>
     </div>
+    <div class="update__inputs">
+      <label for="new-audience"
+        >Select with whom you would watch this movie:
+      </label>
+      <p-dropdown
+        id="new-audience"
+        name="new-audience"
+        [options]="audiences"
+        [(ngModel)]="movieToDisplay.audience"
+      ></p-dropdown>
+    </div>
+    <div class="update__inputs">
+      <label for="new-synopsis">Type the new movie synopsis: </label>
+      <textarea
+        [rows]="3"
+        id="new-synopsis"
+        name="new-synopsis"
+        pInputTextarea
+        [autoResize]="true"
+        placeholder="Movie synopsis"
+        [(ngModel)]="movieToDisplay.synopsis"
+      ></textarea>
+    </div>
 
     <p-button
       type="submit"

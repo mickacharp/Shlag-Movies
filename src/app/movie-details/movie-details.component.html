@@ -28,12 +28,25 @@
   ></p-button>
 
   <p-dialog
+    header="You need to log in to update a movie 😅"
+    [(visible)]="displayModal"
+    [modal]="true"
+    [style]="{ width: '60vw', height: '20vh' }"
+    [draggable]="false"
+    [resizable]="false"
+    *ngIf="!(authService.userData | async)"
+  >
+    <app-auth></app-auth>
+  </p-dialog>
+
+  <p-dialog
     header="Update {{ movieToDisplay.title }} movie"
     [(visible)]="displayModal"
     [modal]="true"
     [style]="{ width: '50vw' }"
     [draggable]="false"
     [resizable]="false"
+    *ngIf="authService.userData | async"
   >
     <app-update-movie
       [movieToDisplay]="movieToDisplay"
@@ -47,5 +60,6 @@
     icon="pi pi-trash"
     iconPos="right"
     (onClick)="confirmDelete()"
+    *ngIf="authService.userData | async"
   ></p-button>
 </div>
