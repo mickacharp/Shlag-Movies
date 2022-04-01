@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { CollectionMoviesService } from '../collection-movies.service';
+import { CollectionMoviesService } from '../shared/collection-movies.service';
 import { Movie } from '../models/movie';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -23,7 +24,8 @@ export class MovieDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private confirmationService: ConfirmationService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -66,14 +68,6 @@ export class MovieDetailsComponent implements OnInit {
           detail: `F for mah boi, it will be missed 😭`,
         });
         this.deleteMovie();
-      },
-      reject: () => {
-        this.messageService.add({
-          severity: 'warn',
-          summary: 'Movie still there',
-          detail:
-            'Phew, "on a encore eu de la chance" as the frenchies would say 😯',
-        });
       },
     });
   }

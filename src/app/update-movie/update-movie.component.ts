@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { CollectionMoviesService } from '../collection-movies.service';
+import { CollectionMoviesService } from '../shared/collection-movies.service';
 import { Movie } from '../models/movie';
 
 @Component({
@@ -11,6 +11,8 @@ import { Movie } from '../models/movie';
 })
 export class UpdateMovieComponent implements OnInit {
   @Input() movieToDisplay: Movie = new Movie('', '', 0, '', '', '', '');
+
+  audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
 
   constructor(
     private service: CollectionMoviesService,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { Movie } from './models/movie';
+import { Movie } from '../models/movie';
 
 @Injectable({
   providedIn: 'root',

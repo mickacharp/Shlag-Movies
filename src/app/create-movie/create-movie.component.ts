@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CollectionMoviesService } from '../collection-movies.service';
+import { CollectionMoviesService } from '../shared/collection-movies.service';
 import { Movie } from '../models/movie';
 
 @Component({
@@ -10,6 +10,8 @@ import { Movie } from '../models/movie';
 })
 export class CreateMovieComponent implements OnInit {
   newMovie: Movie = new Movie('', '', 0, '', '', '', '');
+
+  audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
 
   constructor(
     private service: CollectionMoviesService,
