@@ -12,6 +12,8 @@ import { Movie } from '../models/movie';
 export class UpdateMovieComponent implements OnInit {
   @Input() movieToDisplay: Movie = new Movie('', '', 0, '', '', '', '');
 
+  audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
+
   constructor(
     private service: CollectionMoviesService,
     private router: Router,

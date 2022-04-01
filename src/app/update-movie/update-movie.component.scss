@@ -23,7 +23,9 @@
     align-items: center;
     margin: 10px 0;
 
-    input {
+    input,
+    ::ng-deep .p-dropdown,
+    ::ng-deep .p-inputtextarea {
       width: 400px;
     }
   }
