@@ -1,27 +1,43 @@
-<form (ngSubmit)="addMovie(); navigateToCreatedMovie()" class="create-form">
+<form
+  (ngSubmit)="addMovie(); navigateToCreatedMovie()"
+  class="create-form"
+  #addMovieForm="ngForm"
+>
   <div class="create-form__inputs">
     <label for="title">Type a title: </label>
     <span class="p-input-icon-left p-float-label">
       <i class="pi pi-pencil"></i>
       <input
+        pInputText
         type="text"
         id="title"
         name="title"
-        pInputText
+        required
+        #title="ngModel"
         placeholder="Title"
         [(ngModel)]="newMovie.title"
+        [ngClass]="{
+          'ng-dirty': title.invalid || (title.dirty && title.invalid)
+        }"
       />
     </span>
+    <small
+      *ngIf="title.invalid || (title.dirty && title.invalid)"
+      class="p-error"
+      >A movie title is required</small
+    >
   </div>
   <div class="create-form__inputs">
     <label for="director">Type a director: </label>
     <span class="p-input-icon-left p-float-label">
       <i class="pi pi-user"></i>
       <input
+        pInputText
         type="text"
         id="director"
         name="director"
-        pInputText
+        required
+        #director="ngModel"
         placeholder="Director"
         [(ngModel)]="newMovie.director"
       />
@@ -32,12 +48,14 @@
     <span class="p-input-icon-left p-float-label">
       <i class="pi pi-clock"></i>
       <input
+        pInputText
         type="number"
         id="year"
         name="year"
         min="1900"
         max="2022"
-        pInputText
+        required
+        #year="ngModel"
         [(ngModel)]="newMovie.year"
       />
     </span>
@@ -47,11 +65,13 @@
     <span class="p-input-icon-left p-float-label">
       <i class="pi pi-compass"></i>
       <input
+        pInputText
         type="text"
         id="genre"
         name="genre"
-        pInputText
         placeholder="Genre"
+        required
+        #genre="ngModel"
         [(ngModel)]="newMovie.genre"
       />
     </span>
@@ -61,11 +81,13 @@
     <span class="p-input-icon-left p-float-label">
       <i class="pi pi-image"></i>
       <input
+        pInputText
         type="text"
         id="img"
         name="img"
-        pInputText
         placeholder="Movie Poster URL"
+        required
+        #poster="ngModel"
         [(ngModel)]="newMovie.img"
       />
     </span>
@@ -76,18 +98,21 @@
       id="audience"
       name="audience"
       [options]="audiences"
+      #audience="ngModel"
       [(ngModel)]="newMovie.audience"
     ></p-dropdown>
   </div>
   <div class="create-form__inputs">
     <label for="synopsis">Type the movie synopsis: </label>
     <textarea
-      [rows]="3"
+      pInputTextarea
       id="synopsis"
       name="synopsis"
-      pInputTextarea
+      [rows]="3"
       [autoResize]="true"
       placeholder="Movie synopsis"
+      required
+      #synopsis="ngModel"
       [(ngModel)]="newMovie.synopsis"
     ></textarea>
   </div>
