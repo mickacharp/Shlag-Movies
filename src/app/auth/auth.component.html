@@ -1,23 +1,43 @@
-<div *ngIf="!(authService.userData | async)">
-  <input pInputText type="text" [(ngModel)]="email" placeholder="Email" />
+<div *ngIf="!(authService.userData | async)" class="auth">
+  <label for="user-email">Your email:</label>
+  <input
+    pInputText
+    type="text"
+    id="user-email"
+    name="user-email"
+    [(ngModel)]="email"
+    placeholder="Email"
+    class="auth__email"
+  />
+  <label for="user-password">Your password:</label>
   <input
     pInputText
     type="password"
+    id="user-password"
+    name="user-password"
     [(ngModel)]="password"
     placeholder="Password"
+    class="auth__password"
   />
-  <p-button
-    (click)="signUp()"
-    icon="pi pi-user-plus"
-    iconPos="right"
-    label="Sign up"
-    class="sign-up-button"
-  ></p-button>
   <p-button
     (click)="signIn()"
     icon="pi pi-sign-in"
     iconPos="right"
     label="Login"
-    class="login-button"
+    class="auth__login-button"
+  ></p-button>
+
+  <div class="separate"></div>
+
+  <p class="auth__sign-up-instructions">
+    Want to create an account? Simply give us an email and password above and
+    click <strong>Sign up</strong>!
+  </p>
+  <p-button
+    (click)="signUp()"
+    icon="pi pi-user-plus"
+    iconPos="right"
+    label="Sign up"
+    class="auth__sign-up-button"
   ></p-button>
 </div>

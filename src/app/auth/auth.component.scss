@@ -1,0 +1,26 @@
+.auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40vh;
+
+    * {
+        margin-top: 20px;
+    }
+
+    input {
+        width: 30vw;
+    }
+
+    strong {
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+}
+.separate {
+    width:20%;
+    height: 1px;
+    border-top: solid white 1px;
+}
