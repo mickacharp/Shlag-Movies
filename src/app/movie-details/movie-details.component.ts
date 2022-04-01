@@ -69,14 +69,6 @@ export class MovieDetailsComponent implements OnInit {
         });
         this.deleteMovie();
       },
-      reject: () => {
-        this.messageService.add({
-          severity: 'warn',
-          summary: 'Movie still there',
-          detail:
-            'Phew, "on a encore eu de la chance" as the frenchies would say 😯',
-        });
-      },
     });
   }
 }

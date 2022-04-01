@@ -1,4 +1,20 @@
 <div class="header">
+  <!-- Logout button and welcoming message -->
+  <p-button
+    (click)="signOut()"
+    icon="pi pi-sign-out"
+    iconPos="right"
+    label="Logout"
+    class="header__logout-button"
+    *ngIf="authService.userData | async"
+  >
+  </p-button>
+
+  <p *ngIf="authService.userData | async" class="header__welcome">
+    Hello {{ (authService.userData | async)?.email }} 😊
+  </p>
+
+  <!-- Main title -->
   <h1 class="header__title" routerLink="/">SHLAG MOVIES</h1>
 
   <!-- Account button and modal -->
@@ -10,19 +26,6 @@
     iconPos="right"
     *ngIf="!(authService.userData | async)"
   ></p-button>
-  <p-button
-    (click)="signOut()"
-    icon="pi pi-sign-out"
-    iconPos="right"
-    label="Logout"
-    class="header__logout-button"
-    *ngIf="authService.userData | async"
-  >
-  </p-button>
-
-  <h1 *ngIf="authService.userData | async">
-    Hello {{ (authService.userData | async)?.email }} 😊
-  </h1>
 
   <p-dialog
     header="Authentification"

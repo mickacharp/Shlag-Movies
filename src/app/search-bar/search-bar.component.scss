@@ -13,7 +13,7 @@
   align-items: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
-  .searchbar, .searchbar__results, p {
+  &, &__results, p {
     margin-top: 20px;
   }
 
