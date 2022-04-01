@@ -18,9 +18,17 @@
     font-family: Georgia, "Times New Roman", Times, serif;
     cursor: pointer;
   }
-  &__add-button {
+
+  &__add-button, &__account-button {
     position: absolute;
     top: 10px;
+  }
+
+  &__add-button {
     right: 10px;
+  }
+
+  &__account-button {
+  left: 10px;
   }
 }

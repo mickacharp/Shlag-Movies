@@ -1,5 +1,31 @@
 <div class="header">
   <h1 class="header__title" routerLink="/">SHLAG MOVIES</h1>
+
+  <!-- Account button and modal -->
+  <p-button
+    (click)="showModalDialog()"
+    icon="pi pi-user"
+    label="My account"
+    class="header__account-button"
+    iconPos="right"
+  ></p-button>
+
+  <h1 *ngIf="authService.userData | async">
+    Hello {{ (authService.userData | async)?.email }} 😊
+  </h1>
+
+  <p-dialog
+    header="Authentification"
+    [(visible)]="displayModal"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <app-auth></app-auth>
+  </p-dialog>
+
+  <!-- Add a movie button -->
   <p-button
     icon="pi pi-plus"
     iconPos="left"
