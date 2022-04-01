@@ -18,9 +18,24 @@
     font-family: Georgia, "Times New Roman", Times, serif;
     cursor: pointer;
   }
-  &__add-button {
+
+  &__welcome {
+    position: absolute;
+    bottom: 5px;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    color: rgb(255, 240, 255);
+  }
+
+  &__add-button, &__account-button, &__logout-button {
     position: absolute;
     top: 10px;
+  }
+
+  &__add-button {
     right: 10px;
+  }
+
+  &__account-button, &__logout-button, &__welcome {
+  left: 10px;
   }
 }

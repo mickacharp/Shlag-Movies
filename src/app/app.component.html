@@ -1,26 +1,4 @@
 <app-header></app-header>
-<p-button
-  (click)="showModalDialog()"
-  icon="pi pi-user"
-  label="My account"
-  class="my-account-button"
-  iconPos="right"
-></p-button>
-
-<h1 *ngIf="authService.userData | async">
-  Hello {{ (authService.userData | async)?.email }} 😊
-</h1>
-
-<p-dialog
-  header="Authentification"
-  [(visible)]="displayModal"
-  [modal]="true"
-  [style]="{ width: '50vw' }"
-  [draggable]="false"
-  [resizable]="false"
->
-  <app-auth></app-auth>
-</p-dialog>
 
 <router-outlet></router-outlet>
 
