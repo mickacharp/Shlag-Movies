@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { CollectionMoviesService } from '../shared/collection-movies.service';
@@ -13,6 +13,13 @@ export class UpdateMovieComponent implements OnInit {
   @Input() movieToDisplay: Movie = new Movie('', '', 0, '', '', '', '');
 
   audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
+
+  // Alerts parent MovieDetailsComponent to close Update modal when user confirms changes
+  @Output()
+  closeUpdateModal: EventEmitter<boolean> = new EventEmitter();
+  sendCloseUpdateModal(): void {
+    this.closeUpdateModal.emit(false);
+  }
 
   constructor(
     private service: CollectionMoviesService,
@@ -42,6 +49,7 @@ export class UpdateMovieComponent implements OnInit {
           detail: `${this.movieToDisplay.title} got a lifting 😎`,
         });
         this.updateMovie();
+        this.sendCloseUpdateModal();
       },
       reject: () => {
         this.messageService.add({
