@@ -1,6 +1,6 @@
 .p-inputtext {
   width: 10vw;
-  height: 50px;
+  height: 45px;
   border-radius: 5px;
 }
 
@@ -30,5 +30,10 @@
     ::ng-deep .p-inputtextarea {
       width: 50vw;
     }
+
+    .synopsis-length {
+      color: white;
+    }
   }
 }
+
