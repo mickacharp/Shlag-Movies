@@ -11,3 +11,24 @@ body {
   margin-top: $headerMargin;
 }
 
+// Scrollbar CSS
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+  border-radius: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $scrollbarBackgroundColor;
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6d426d;
+  width: 8px;
+  border: 3px solid $scrollbarBackgroundColor;
+}
+
+
