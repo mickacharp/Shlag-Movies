@@ -31,7 +31,7 @@
     header="You need to log in to update a movie 😅"
     [(visible)]="displayModal"
     [modal]="true"
-    [style]="{ width: '60vw', height: '20vh' }"
+    [style]="{ width: '50vw' }"
     [draggable]="false"
     [resizable]="false"
     *ngIf="!(authService.userData | async)"

@@ -1,28 +1,31 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .header {
   width: 100%;
   height: 100px;
+  margin-top: -$headerMargin;
   background-color: #6d426d;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  @include flexAlignJustifyCenter;
+  z-index: 2;
 
   &__title {
     padding: 10px 20px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
+    border-radius: $defaultBorderRadius;
     color: azure;
     letter-spacing: 5px;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: $mainTitleFont;
     cursor: pointer;
   }
 
   &__welcome {
     position: absolute;
     bottom: 5px;
-    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    font-family: $defaultFont;
     color: rgb(255, 240, 255);
   }
 

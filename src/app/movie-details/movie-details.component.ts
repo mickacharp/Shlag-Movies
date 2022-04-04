@@ -30,6 +30,7 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOneMovie();
+    // below is used to get the movie details if its title has been modified right before since the app retrieves the movie from the movie title in the URL path
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -62,11 +63,6 @@ export class MovieDetailsComponent implements OnInit {
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Movie deleted',
-          detail: `F for mah boi, it will be missed 😭`,
-        });
         this.deleteMovie();
       },
     });

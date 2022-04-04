@@ -1,6 +1,8 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .img-title {
-    display: flex;
-    align-items: center;
+    @include flexAlignCenter;
     img {
         margin-right: 50px;
     }
