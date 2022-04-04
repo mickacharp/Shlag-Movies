@@ -19,6 +19,11 @@ export class MovieDetailsComponent implements OnInit {
     this.displayModal = true;
   }
 
+  // Output received from child UpdateMovieComponent
+  receiveCloseUpdateModal($event: boolean): void {
+    this.displayModal = $event;
+  }
+
   constructor(
     private service: CollectionMoviesService,
     private route: ActivatedRoute,

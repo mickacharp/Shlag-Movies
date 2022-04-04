@@ -49,6 +49,7 @@
     *ngIf="authService.userData | async"
   >
     <app-update-movie
+      (closeUpdateModal)="receiveCloseUpdateModal($event)"
       [movieToDisplay]="movieToDisplay"
       class="movie__update"
     ></app-update-movie>
