@@ -8,14 +8,14 @@
   background-color: #6d426d;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
   position: fixed;
-  @include flexCenter;
+  @include flexAlignJustifyCenter;
   z-index: 2;
 
   &__title {
     padding: 10px 20px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
+    border-radius: $defaultBorderRadius;
     color: azure;
     letter-spacing: 5px;
     font-family: $mainTitleFont;

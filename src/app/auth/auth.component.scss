@@ -1,8 +1,9 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .auth {
-    display: flex;
-    flex-direction: column;
+    @include flexAlignCenterColumn;
     justify-content: space-evenly;
-    align-items: center;
     height: 40vh;
 
     * {

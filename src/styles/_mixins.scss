@@ -1,5 +1,19 @@
-@mixin flexCenter {
+@mixin flexAlignCenter {
     display: flex;
-  justify-content: center;
-  align-items: center;
+    align-items: center;
+}
+// ------------------------------
+@mixin flexAlignCenterColumn {
+    @include flexAlignCenter;
+    flex-direction: column;
+}
+
+@mixin flexAlignJustifyCenter {
+    @include flexAlignCenter;
+    justify-content: center;    
+}
+
+@mixin flexAlignJustifyCenterColumn {
+    @include flexAlignJustifyCenter;
+    flex-direction: column;   
 }
