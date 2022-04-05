@@ -12,17 +12,17 @@ export class AuthService {
   displayModal: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
-    private angularFireAuth: AngularFireAuth,
+    private afAuth: AngularFireAuth,
     private messageService: MessageService
   ) {
-    this.userData = angularFireAuth.authState;
+    this.userData = afAuth.authState;
   }
 
   ngOnInit(): void {}
 
   /* Sign up */
   SignUp(email: string, password: string) {
-    this.angularFireAuth
+    this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         console.log('Successfully signed up!', res);
@@ -33,7 +33,7 @@ export class AuthService {
   }
   /* Sign in */
   SignIn(email: string, password: string) {
-    this.angularFireAuth
+    this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         console.log('Successfully signed in!', res);
@@ -55,7 +55,7 @@ export class AuthService {
   }
   /* Sign out */
   SignOut() {
-    this.angularFireAuth.signOut();
+    this.afAuth.signOut();
     this.displayModal.next(false);
     this.messageService.add({
       severity: 'custom',

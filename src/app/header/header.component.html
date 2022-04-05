@@ -10,9 +10,10 @@
   >
   </p-button>
 
-  <p *ngIf="authService.userData | async" class="header__welcome">
-    Hello {{ (authService.userData | async)?.email }} 😊
-  </p>
+  <div *ngIf="authService.userData | async" class="header__welcome">
+    <p>Connected as {{ (authService.userData | async)?.displayName }}</p>
+    <img src="{{ (authService.userData | async)?.photoURL }}" alt="" />
+  </div>
 
   <!-- Main title -->
   <h1 class="header__title" routerLink="/">SHLAG MOVIES</h1>
