@@ -1,6 +1,18 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+.movies-table {
+    th {
+        &.small {
+            width: 15vw;
+        }
+
+        &.large {
+            width: 25vw;
+        }
+    }
+}
+
 .img-title {
     @include flexAlignCenter;
     img {

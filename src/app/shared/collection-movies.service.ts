@@ -11,6 +11,8 @@ export class CollectionMoviesService {
   myMovies: BehaviorSubject<Movie[]> = new BehaviorSubject<Movie[]>([]);
   movieToDisplay: Movie = new Movie('', '', 0, '', '', '', '');
 
+  audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
+
   constructor(private afs: AngularFirestore, private router: Router) {}
 
   getAllMovies(): Observable<Movie[]> {

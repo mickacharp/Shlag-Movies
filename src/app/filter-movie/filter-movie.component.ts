@@ -9,10 +9,12 @@ import { CollectionMoviesService } from '../shared/collection-movies.service';
 })
 export class FilterMovieComponent implements OnInit {
   moviesList: Movie[] = [];
+  audiences: string[] = [];
 
   constructor(private movieService: CollectionMoviesService) {}
 
   ngOnInit(): void {
+    this.audiences = this.movieService.audiences;
     this.movieService
       .getAllMovies()
       .subscribe((movies) => (this.moviesList = movies));
