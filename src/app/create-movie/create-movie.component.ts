@@ -14,7 +14,7 @@ export class CreateMovieComponent implements OnInit {
   synopsisMaxLength: number = 0;
   currentYear: number = new Date().getFullYear();
 
-  audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
+  audiences: string[] = [];
 
   constructor(
     private service: CollectionMoviesService,
@@ -24,6 +24,7 @@ export class CreateMovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSynopsisMaxLength();
+    this.audiences = this.service.audiences;
   }
 
   getSynopsisMaxLength(): void {

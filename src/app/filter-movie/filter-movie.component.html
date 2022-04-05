@@ -1,5 +1,24 @@
-<div class="card">
-  <p-table [value]="moviesList">
+<div class="movies-table">
+  <p-table
+    #moviesTable
+    [value]="moviesList"
+    [globalFilterFields]="['title', 'audience', 'director', 'genre', 'year']"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="
+              moviesTable.filterGlobal($any($event.target).value, 'contains')
+            "
+            placeholder="Search any keyword"
+          />
+        </span>
+      </div>
+    </ng-template>
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="title">
@@ -16,6 +35,61 @@
         </th>
         <th pSortableColumn="year">
           Year <p-sortIcon field="year"></p-sortIcon>
+        </th>
+      </tr>
+      <tr>
+        <th class="large">
+          <p-columnFilter
+            type="text"
+            field="title"
+            placeholder="Type and select a sorting option"
+          ></p-columnFilter>
+        </th>
+        <th class="small">
+          <p-columnFilter
+            field="audience"
+            matchMode="equals"
+            [showMenu]="false"
+          >
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback"
+            >
+              <p-dropdown
+                [ngModel]="value"
+                [options]="audiences"
+                (onChange)="filter($event.value)"
+                placeholder="All"
+                [showClear]="true"
+              >
+                <ng-template *ngFor="let audience of audiences">
+                  <span>{{ audience }}</span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="director"
+            placeholder="All directors"
+          ></p-columnFilter>
+        </th>
+        <th class="small">
+          <p-columnFilter
+            type="text"
+            field="genre"
+            placeholder="All genres"
+          ></p-columnFilter>
+        </th>
+        <th class="small">
+          <p-columnFilter
+            type="text"
+            field="year"
+            placeholder="All years"
+          ></p-columnFilter>
         </th>
       </tr>
     </ng-template>
