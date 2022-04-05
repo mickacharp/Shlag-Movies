@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 import firebase from 'firebase/compat';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class AuthService {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {
     this.userData = afAuth.authState;
   }
@@ -54,8 +56,9 @@ export class AuthService {
       });
   }
   /* Sign out */
-  SignOut() {
-    this.afAuth.signOut();
+  async signOut() {
+    await this.afAuth.signOut();
+    this.router.navigate(['/']);
     this.displayModal.next(false);
     this.messageService.add({
       severity: 'custom',

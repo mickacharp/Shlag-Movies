@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { User } from '../models/user';
 
 import firebase from 'firebase/compat/app';
@@ -17,11 +16,7 @@ import { switchMap } from 'rxjs/operators';
 export class AuthGoogleService {
   user$: Observable<User | undefined | null>;
 
-  constructor(
-    private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
-    private router: Router
-  ) {
+  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
     // Get the auth state, then fetch the Firestore user document or return null
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -58,10 +53,5 @@ export class AuthGoogleService {
     };
 
     return userRef.set(data, { merge: true });
-  }
-
-  async signOut() {
-    await this.afAuth.signOut();
-    this.router.navigate(['/']);
   }
 }

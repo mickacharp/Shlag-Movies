@@ -41,7 +41,6 @@ import { CreateMovieComponent } from './create-movie/create-movie.component';
 import { HeaderComponent } from './header/header.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
 import { FilterMovieComponent } from './filter-movie/filter-movie.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 
 // PrimeNg imports
 import { InputTextModule } from 'primeng/inputtext';
@@ -66,7 +65,6 @@ import { AuthComponent } from './auth/auth.component';
     UpdateMovieComponent,
     AuthComponent,
     FilterMovieComponent,
-    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
