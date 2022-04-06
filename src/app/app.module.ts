@@ -53,6 +53,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TableModule } from 'primeng/table';
 import { AuthComponent } from './auth/auth.component';
+import { GuardComponent } from './guard/guard.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AuthComponent } from './auth/auth.component';
     UpdateMovieComponent,
     AuthComponent,
     FilterMovieComponent,
+    GuardComponent,
   ],
   imports: [
     BrowserModule,
