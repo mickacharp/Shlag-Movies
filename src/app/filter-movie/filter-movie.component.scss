@@ -11,11 +11,18 @@
             width: 25vw;
         }
     }
+    &__movie {
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(85, 85, 85);
+        }
+    }
 }
 
 .img-title {
     @include flexAlignCenter;
     img {
         margin-right: 50px;
+        width: 101px;
     }
 }
