@@ -1,75 +1,128 @@
 <div class="update">
-  <form (ngSubmit)="confirmUpdate()" class="update__form">
+  <form
+    (ngSubmit)="updateMovieForm.valid && confirmUpdate()"
+    class="update__form"
+    #updateMovieForm="ngForm"
+  >
     <div class="update__inputs">
       <label for="new-title">Type a new title: </label>
       <span class="p-input-icon-left p-float-label">
         <i class="pi pi-pencil"></i>
         <input
+          pInputText
           type="text"
           id="new-title"
           name="new-title"
-          pInputText
+          required
+          #title="ngModel"
           placeholder="New title"
           [(ngModel)]="movieToDisplay.title"
+          [ngClass]="{
+            'ng-dirty': title.invalid || (title.dirty && title.invalid)
+          }"
         />
       </span>
+      <small
+        *ngIf="title.invalid || (title.dirty && title.invalid)"
+        class="p-error"
+        >A movie title is required</small
+      >
     </div>
     <div class="update__inputs">
       <label for="new-director">Type a new director: </label>
       <span class="p-input-icon-left p-float-label">
         <i class="pi pi-user"></i>
         <input
+          pInputText
           type="text"
           id="new-director"
           name="new-director"
-          pInputText
           placeholder="New director"
+          required
+          #director="ngModel"
           [(ngModel)]="movieToDisplay.director"
+          [ngClass]="{
+            'ng-dirty': director.invalid || (director.dirty && director.invalid)
+          }"
         />
       </span>
+      <small
+        *ngIf="director.invalid || (director.dirty && director.invalid)"
+        class="p-error"
+        >A movie director is required</small
+      >
     </div>
     <div class="update__inputs">
       <label for="new-year">Type a new year: </label>
       <span class="p-input-icon-left p-float-label">
         <i class="pi pi-clock"></i>
         <input
+          pInputText
           type="number"
           id="new-year"
           name="new-year"
-          min="1900"
-          max="2022"
-          pInputText
+          min="1888"
+          max="{{ currentYear }}"
+          required
+          #year="ngModel"
           [(ngModel)]="movieToDisplay.year"
+          [ngClass]="{
+            'ng-dirty': year.invalid || (year.dirty && year.invalid)
+          }"
         />
       </span>
+      <small
+        *ngIf="year.errors?.['max'] || year.errors?.['min'] || year.errors?.['required']"
+        class="p-error"
+        >Release year of the movie is required and must be between 1888 and
+        {{ currentYear }}</small
+      >
     </div>
     <div class="update__inputs">
       <label for="new-genre">Type a new genre: </label>
       <span class="p-input-icon-left p-float-label">
         <i class="pi pi-compass"></i>
         <input
+          pInputText
           type="text"
           id="new-genre"
           name="new-genre"
-          pInputText
           placeholder="New genre"
+          required
+          #genre="ngModel"
           [(ngModel)]="movieToDisplay.genre"
+          [ngClass]="{
+            'ng-dirty': genre.invalid || (genre.dirty && genre.invalid)
+          }"
         />
       </span>
+      <small
+        *ngIf="genre.invalid || (genre.dirty && genre.invalid)"
+        class="p-error"
+        >A movie genre is required</small
+      >
     </div>
     <div class="update__inputs">
       <label for="new-img">Paste URL of new movie poster: </label>
       <span class="p-input-icon-left p-float-label">
         <i class="pi pi-image"></i>
         <input
+          pInputText
           type="text"
           id="new-img"
           name="new-img"
-          pInputText
           placeholder="New movie Poster URL"
+          required
+          #img="ngModel"
           [(ngModel)]="movieToDisplay.img"
+          [ngClass]="{
+            'ng-dirty': img.invalid || (img.dirty && img.invalid)
+          }"
         />
       </span>
+      <small *ngIf="img.invalid || (img.dirty && img.invalid)" class="p-error"
+        >A movie poster is required (.jpg, .jpeg, .png)</small
+      >
     </div>
     <div class="update__inputs">
       <label for="new-audience"
@@ -85,14 +138,28 @@
     <div class="update__inputs">
       <label for="new-synopsis">Type the new movie synopsis: </label>
       <textarea
-        [rows]="3"
+        pInputTextarea
         id="new-synopsis"
         name="new-synopsis"
-        pInputTextarea
+        [rows]="3"
+        maxlength="{{ synopsisMaxLength }}"
         [autoResize]="true"
         placeholder="Movie synopsis"
+        required
+        #synopsis="ngModel"
         [(ngModel)]="movieToDisplay.synopsis"
+        [ngClass]="{
+          'ng-dirty': synopsis.invalid || (synopsis.dirty && synopsis.invalid)
+        }"
       ></textarea>
+      <small class="p-error synopsis-length"
+        >{{ synopsisMaxLength - synopsis.value.length }} remaining characters
+      </small>
+      <small
+        *ngIf="synopsis.invalid || (synopsis.dirty && synopsis.invalid)"
+        class="p-error"
+        >A movie synopsis is required</small
+      >
     </div>
 
     <p-button
@@ -100,6 +167,7 @@
       label="Confirm changes"
       icon="pi pi-arrow-circle-right"
       iconPos="right"
+      [disabled]="updateMovieForm.valid === false"
     ></p-button>
   </form>
 </div>

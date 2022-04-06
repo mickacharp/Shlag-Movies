@@ -11,7 +11,7 @@ import { MessageService } from 'primeng/api';
 })
 export class CreateMovieComponent implements OnInit {
   newMovie: Movie = new Movie('', '', 0, '', '', '', '');
-  synopsisMaxLength: number = 0;
+  synopsisMaxLength: number = 500;
   currentYear: number = new Date().getFullYear();
 
   audiences: string[] = [];
@@ -23,16 +23,7 @@ export class CreateMovieComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getSynopsisMaxLength();
     this.audiences = this.service.audiences;
-  }
-
-  getSynopsisMaxLength(): void {
-    const synopsis = document.querySelector('#synopsis');
-    const maxLengthAttributeValue = synopsis?.getAttribute('maxlength');
-    if (maxLengthAttributeValue) {
-      this.synopsisMaxLength = Number(maxLengthAttributeValue);
-    }
   }
 
   addMovie(): void {
