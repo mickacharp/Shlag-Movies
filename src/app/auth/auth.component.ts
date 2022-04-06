@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthGoogleService } from '../shared/auth-google.service';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
@@ -10,7 +11,10 @@ export class AuthComponent implements OnInit {
   email: string = '';
   password: string = '';
 
-  constructor(public authService: AuthService) {}
+  constructor(
+    public authService: AuthService,
+    public authGoogleService: AuthGoogleService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -24,5 +28,5 @@ export class AuthComponent implements OnInit {
     this.email = '';
     this.password = '';
   }
-  // signOut moved to header component to allow to replace "My Account" button by "Logout" button
+  // signOut is in AuthService service
 }

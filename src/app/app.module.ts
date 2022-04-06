@@ -5,9 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthService } from './shared/auth.service';
+import { AuthGoogleService } from './shared/auth-google.service';
 
 // AngularFire imports
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 
@@ -38,6 +40,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { CreateMovieComponent } from './create-movie/create-movie.component';
 import { HeaderComponent } from './header/header.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
+import { FilterMovieComponent } from './filter-movie/filter-movie.component';
 
 // PrimeNg imports
 import { InputTextModule } from 'primeng/inputtext';
@@ -50,7 +53,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TableModule } from 'primeng/table';
 import { AuthComponent } from './auth/auth.component';
-import { FilterMovieComponent } from './filter-movie/filter-movie.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,7 @@ import { FilterMovieComponent } from './filter-movie/filter-movie.component';
     TableModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideFirestore(() => getFirestore()),
     // provideAnalytics(() => getAnalytics()),
@@ -96,6 +99,7 @@ import { FilterMovieComponent } from './filter-movie/filter-movie.component';
     ConfirmationService,
     MessageService,
     AuthService,
+    AuthGoogleService,
   ],
   bootstrap: [AppComponent],
 })
