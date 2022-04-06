@@ -94,9 +94,12 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-moviesList>
-      <tr>
+      <tr
+        routerLink="/movies/{{ moviesList.title }}"
+        class="movies-table__movie"
+      >
         <td class="img-title">
-          <img src="{{ moviesList.img }}" alt="" width="100px" />
+          <img src="{{ moviesList.img }}" alt="movie poster" />
           {{ moviesList.title }}
         </td>
         <td>{{ moviesList.audience }}</td>
