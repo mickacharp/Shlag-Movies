@@ -9,3 +9,7 @@
     }
   }
 }
+
+::ng-deep .p-toast {
+  z-index: 2;
+}

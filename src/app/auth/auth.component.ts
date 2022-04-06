@@ -28,5 +28,5 @@ export class AuthComponent implements OnInit {
     this.email = '';
     this.password = '';
   }
-  // signOut moved to header component to allow to replace "My Account" button by "Logout" button
+  // signOut is in AuthService service
 }

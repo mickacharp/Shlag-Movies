@@ -21,7 +21,7 @@ else display the user email -->
       "
       class="header__welcome"
     >
-      <p>Connected as {{ (authService.userData | async)?.displayName }}</p>
+      <p>Logged in as {{ (authService.userData | async)?.displayName }}</p>
       <img src="{{ (authService.userData | async)?.photoURL }}" alt="" />
     </div>
 
@@ -29,7 +29,7 @@ else display the user email -->
       *ngIf="!(authService.userData | async)?.displayName"
       class="header__welcome"
     >
-      <p>Connected as {{ (authService.userData | async)?.email }}</p>
+      <p>Logged in as {{ (authService.userData | async)?.email }}</p>
     </div>
   </div>
 

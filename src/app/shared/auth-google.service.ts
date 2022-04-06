@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { AuthService } from './auth.service';
+import { MessageService } from 'primeng/api';
 
 import firebase from 'firebase/compat/app';
 
@@ -16,7 +18,12 @@ import { switchMap } from 'rxjs/operators';
 export class AuthGoogleService {
   user$: Observable<User | undefined | null>;
 
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
+    private authService: AuthService,
+    private messageService: MessageService
+  ) {
     // Get the auth state, then fetch the Firestore user document or return null
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -34,6 +41,12 @@ export class AuthGoogleService {
   async googleSignin(): Promise<void> {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
+    this.authService.displayModal.next(false);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'You are logged in!',
+      detail: `Welcome back mah frend`,
+    });
     if (credential.user != null) {
       return this.updateUserData(credential.user);
     }
