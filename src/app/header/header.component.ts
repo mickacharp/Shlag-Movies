@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthGoogleService } from '../shared/auth-google.service';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
@@ -13,7 +14,10 @@ export class HeaderComponent implements OnInit {
     this.authService.displayModal.next(true);
   }
 
-  constructor(public authService: AuthService) {}
+  constructor(
+    public authService: AuthService,
+    public authGoogleService: AuthGoogleService
+  ) {}
 
   ngOnInit(): void {
     this.authService.displayModal.subscribe(
@@ -22,6 +26,6 @@ export class HeaderComponent implements OnInit {
   }
 
   signOut() {
-    this.authService.SignOut();
+    this.authService.signOut();
   }
 }

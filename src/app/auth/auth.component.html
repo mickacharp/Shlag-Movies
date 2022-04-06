@@ -27,10 +27,19 @@
     class="auth__login-button"
   ></p-button>
 
+  <p-button
+    (click)="authGoogleService.googleSignin()"
+    icon="pi pi-google"
+    iconPos="right"
+    label="Login with Google"
+    class="auth__login-button"
+  >
+  </p-button>
+
   <div class="separate"></div>
 
   <p class="auth__sign-up-instructions">
-    Want to create an account? Simply give us an email and password above and
+    Want to create an account? Just give us an email and password above and
     click <strong>Sign up</strong>!
   </p>
   <p-button

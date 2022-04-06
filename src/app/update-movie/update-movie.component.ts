@@ -11,8 +11,10 @@ import { Movie } from '../models/movie';
 })
 export class UpdateMovieComponent implements OnInit {
   @Input() movieToDisplay: Movie = new Movie('', '', 0, '', '', '', '');
+  synopsisMaxLength: number = 500;
+  currentYear: number = new Date().getFullYear();
 
-  audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
+  audiences: string[] = [];
 
   // Alerts parent MovieDetailsComponent to close Update modal when user confirms changes
   @Output()
@@ -28,7 +30,9 @@ export class UpdateMovieComponent implements OnInit {
     private messageService: MessageService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.audiences = this.service.audiences;
+  }
 
   updateMovie(): void {
     if (this.movieToDisplay) {

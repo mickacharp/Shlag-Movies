@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Movie } from '../models/movie';
 
@@ -11,7 +10,9 @@ export class CollectionMoviesService {
   myMovies: BehaviorSubject<Movie[]> = new BehaviorSubject<Movie[]>([]);
   movieToDisplay: Movie = new Movie('', '', 0, '', '', '', '');
 
-  constructor(private afs: AngularFirestore, private router: Router) {}
+  audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
+
+  constructor(private afs: AngularFirestore) {}
 
   getAllMovies(): Observable<Movie[]> {
     return this.afs

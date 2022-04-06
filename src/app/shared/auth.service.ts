@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 import firebase from 'firebase/compat';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,17 +13,18 @@ export class AuthService {
   displayModal: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
-    private angularFireAuth: AngularFireAuth,
-    private messageService: MessageService
+    private afAuth: AngularFireAuth,
+    private messageService: MessageService,
+    private router: Router
   ) {
-    this.userData = angularFireAuth.authState;
+    this.userData = afAuth.authState;
   }
 
   ngOnInit(): void {}
 
   /* Sign up */
   SignUp(email: string, password: string) {
-    this.angularFireAuth
+    this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         console.log('Successfully signed up!', res);
@@ -33,7 +35,7 @@ export class AuthService {
   }
   /* Sign in */
   SignIn(email: string, password: string) {
-    this.angularFireAuth
+    this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         console.log('Successfully signed in!', res);
@@ -54,8 +56,9 @@ export class AuthService {
       });
   }
   /* Sign out */
-  SignOut() {
-    this.angularFireAuth.signOut();
+  async signOut() {
+    await this.afAuth.signOut();
+    this.router.navigate(['/']);
     this.displayModal.next(false);
     this.messageService.add({
       severity: 'custom',

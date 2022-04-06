@@ -23,10 +23,18 @@
   }
 
   &__welcome {
+    @include flexAlignCenter;
     position: absolute;
     bottom: 5px;
-    font-family: $defaultFont;
-    color: rgb(255, 240, 255);
+    p {
+      font-family: $defaultFont;
+      color: rgb(255, 240, 255);
+      margin-right: 5px;
+    }
+    img {
+      width: 30px;
+      border-radius: 50%;
+    }
   }
 
   &__add-button, &__account-button, &__logout-button {
