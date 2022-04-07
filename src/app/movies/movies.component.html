@@ -1,12 +1,14 @@
 <app-search-bar [numberOfMovies]="myMovies.length"></app-search-bar>
 <div class="movies">
-  <div class="movies__cards" *ngFor="let movie of myMovies">
-    <a routerLink="/movies/{{ movie.title }}">
-      <img src="{{ movie.img }}" alt="movie poster" class="movies__poster" />
-      <div class="movies__infos">
-        <h1>{{ movie.title | uppercase }}</h1>
-        <h2>{{ movie.year }}</h2>
-      </div>
-    </a>
+  <div
+    class="movies__cards"
+    *ngFor="let movie of myMovies"
+    routerLink="/movies/{{ movie.title }}"
+  >
+    <img src="{{ movie.img }}" alt="movie poster" class="movies__poster" />
+    <div class="movies__infos">
+      <h1>{{ movie.title | uppercase }}</h1>
+      <h2>{{ movie.year }}</h2>
+    </div>
   </div>
 </div>

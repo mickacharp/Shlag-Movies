@@ -1,9 +1,26 @@
+$defaultBorderRadius: 6px;
+
+// Fonts
 $defaultFont: "Segoe UI", Tahoma, Verdana, sans-serif;
 $guardFont: "Rainy Hearts", Tahoma, Verdana, sans-serif;
 $mainTitleFont: Georgia, "Times New Roman", Times, serif;
 
+// Colors
+$scrollbarBackgroundColor: rgb(10, 0, 40);
+
+// Elements sizes
 $headerMargin: 120px;
 
-$defaultBorderRadius: 6px;
+// MoviesComponent
+$movieCardsWidth: 300px;
+$moviePosterHeight: calc($movieCardsWidth + $movieCardsWidth/3);
+$movieInfosHeight: calc($movieCardsWidth - 200px);
+$test: calc($moviePosterHeight + $movieInfosHeight);
 
-$scrollbarBackgroundColor: rgb(10, 0, 40);
+// Responsive breakpoints
+$bp345: 345px;
+$bp700: 700px;
+$bp1024: 1024px;
+$bp1200: 1200px;
+$bp1430: 1430px;
+$bp1640: 1640px;
