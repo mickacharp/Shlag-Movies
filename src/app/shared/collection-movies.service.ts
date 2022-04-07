@@ -11,6 +11,8 @@ export class CollectionMoviesService {
   movieToDisplay: Movie = new Movie('', '', 0, '', '', '', '');
 
   audiences: string[] = ['Alone', 'In couple', 'With family', 'With friends'];
+  currentYear: number = new Date().getFullYear();
+  synopsisMaxLength: number = 500;
 
   constructor(private afs: AngularFirestore) {}
 

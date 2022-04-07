@@ -10,10 +10,9 @@
   >
   </p-button>
 
-  <!-- Choose what to display to welcome user:
-  if user credentials provide a display name and a photo, display them
-else display the user email -->
-  <div *ngIf="authService.userData | async">
+  <!-- Choose what to display to welcome user: -->
+  <ng-container *ngIf="authService.userData | async">
+    <!-- If user credentials provide a display name and a photo, display them -->
     <div
       *ngIf="
         (authService.userData | async)?.displayName &&
@@ -22,16 +21,20 @@ else display the user email -->
       class="header__welcome"
     >
       <p>Logged in as {{ (authService.userData | async)?.displayName }}</p>
-      <img src="{{ (authService.userData | async)?.photoURL }}" alt="" />
+      <img
+        src="{{ (authService.userData | async)?.photoURL }}"
+        alt="profile picture"
+      />
     </div>
 
+    <!-- Else display the user email  -->
     <div
       *ngIf="!(authService.userData | async)?.displayName"
       class="header__welcome"
     >
       <p>Logged in as {{ (authService.userData | async)?.email }}</p>
     </div>
-  </div>
+  </ng-container>
 
   <!-- Main title -->
   <h1 class="header__title" routerLink="/">SHLAG MOVIES</h1>
