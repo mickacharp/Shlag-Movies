@@ -19,7 +19,15 @@
   &__results, p, a {
     color: white;
   }
+
+  &__results {
+    @media screen and (max-width: $bp345) {
+      font-size: .8em;
+    }
+  }
+
   p {
+    text-align: center;
     font-size: .8em;
   }
 
@@ -30,6 +38,9 @@
     &:hover {
       color: rgb(232, 180, 237);
       font-size: 1.2em;
+    }
+    @media screen and (max-width: $bp1200) {
+      color: rgb(232, 180, 237)
     }
   }
 }
