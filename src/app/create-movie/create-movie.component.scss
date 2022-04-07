@@ -11,6 +11,10 @@
   width: 100%;
   @include flexAlignCenterColumn;
 
+  ::ng-deep .p-button {
+    margin-bottom: 10px;
+  }
+
   &__inputs {
     width: 100%;
     @include flexAlignCenterColumn;
@@ -20,14 +24,30 @@
       font-family: $defaultFont;
       color: white;
       margin-bottom: 5px;
+      @media screen and (max-width: $bp345) {
+        font-size: .8em;
+      }
     }
+
+    small {
+      @media screen and (max-width: $bp700) {
+        text-align: center;
+        margin: 0 10px;
+      }
+    }
+
     span {
       display: block;
     }
+
     input,
     ::ng-deep .p-dropdown,
     ::ng-deep .p-inputtextarea {
       width: 50vw;
+      @media screen and (max-width: $bp700) {
+        height: 30px;
+        font-size: .5em;
+      }
     }
 
     .synopsis-length {
