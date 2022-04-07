@@ -1,6 +1,11 @@
 @import 'mixins';
 @import 'variables';
 
+@font-face {
+  font-family: 'Rainy Hearts';
+  src: url('../assets/fonts/rainyhearts.ttf');
+}
+
 * {
   margin: 0;
   padding: 0;
