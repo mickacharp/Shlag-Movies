@@ -29,6 +29,9 @@
   p {
     text-align: center;
     font-size: .8em;
+    @media screen and (max-width: $bp1024) {
+      display: none;
+    }
   }
 
   a {
@@ -40,7 +43,7 @@
       font-size: 1.2em;
     }
     @media screen and (max-width: $bp1200) {
-      color: rgb(232, 180, 237)
+      color: rgb(232, 180, 237);
     }
   }
 }
